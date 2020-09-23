@@ -1,68 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
+import lorembook from './lorembook'
 import './App.css';
 
+
+const IndexItem = ({ hierarchy, title, subChapters }) => {
+  return (
+    <div className={hierarchy}>{title}</div>  
+  )
+}
+
+
+
+const IndexList = ({book}) => {
+
+  
+  return (
+    <div className="index-list">
+      <div className="index-primary">{book.title}</div>
+
+    </div>
+  )
+}
+
+
+const Index = ({book}) => {
+
+  
+
+  return (
+    <div className="index">
+      <IndexList book={book} />
+    </div>
+  )
+}
+
 function App() {
+
+  const book = lorembook
+  
   return (
     <div className="application">
-      <div className="index">
-        <div className="index-list">
-            <div className="index-primary">Refactoring UI</div>
-            <div className="index-secondary">Starting from scratch</div>  
-            <div className="index-tertiary">Start with a feature, not a layout</div>
-            <div className="index-secondary">Detail comes later</div>
-            <div className="index-tertiary">Hold the color</div>
-            <div className="index-tertiary">Don't over invest</div>
-            <div className="index-secondary">Don't design too much</div>
-            <div className="index-tertiary">Work in git remote add origin</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-secondary">Choose a personality</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-tertiary">Be a real pessimist</div>
-            <div className="index-tertiary">Nothing is beautiful</div>
-            <div className="index-secondary">Starting from scratch</div>  
-            <div className="index-tertiary">Start with a feature, not a layout</div>
-            <div className="index-secondary">Detail comes later</div>
-            <div className="index-tertiary">Hold the color</div>
-            <div className="index-tertiary">Don't over invest</div>
-            <div className="index-secondary">Don't design too much</div>
-            <div className="index-tertiary">Work in cycles</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-secondary">Choose a personality</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-tertiary">Be a real pessimist</div>
-            <div className="index-tertiary">Nothing is beautiful</div>
-            <div className="index-secondary">Starting from scratch</div>  
-            <div className="index-tertiary">Start with a feature, not a layout</div>
-            <div className="index-secondary">Detail comes later</div>
-            <div className="index-tertiary">Hold the color</div>
-            <div className="index-tertiary">Don't over invest</div>
-            <div className="index-secondary">Don't design too much</div>
-            <div className="index-tertiary">Work in cycles</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-secondary">Choose a personality</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-tertiary">Be a real pessimist</div>
-            <div className="index-tertiary">Nothing is beautiful</div>
-            <div className="index-secondary">Starting from scratch</div>  
-            <div className="index-tertiary">Start with a feature, not a layout</div>
-            <div className="index-secondary">Detail comes later</div>
-            <div className="index-tertiary">Hold the color</div>
-            <div className="index-tertiary">Don't over invest</div>
-            <div className="index-secondary">Don't design too much</div>
-            <div className="index-tertiary">Work in cycles</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-secondary">Choose a personality</div>
-            <div className="index-tertiary">Be a pessimist</div>
-            <div className="index-tertiary">Be a real pessimist</div>
-            <div className="index-tertiary">Nothing is beautiful</div>
-        </div>
-      </div>
+      <Index book={book}/>
       <div className="content">
         <div className="text-block">
 
         </div>
-        <h1>Refactoring UI</h1>
+        <h1>{book.title}</h1>
         <p>Ex nulla in in volupdtate sadfquis proident voluptate enim excepteur esse. Dolor quis nostrud adipisicing deserunt qui officia excepteur. Duis anim cillum reprehenderit ipsum Lorem occaecat. Velit deserunt consequat fugiat proident consequat. Aliqua laboris velit ullamco elit excepteur laboris esse cupidatat elit. Duis qui laborum do reprehenderit.
 
         Eiusmod ullamco duis enim Lorem. Sint do incididunt sint magna reprehenderit. Velit cupidatat nostrud exercitation magna commodo cupidatat Lorem enim eiusmod velit velit irure.
